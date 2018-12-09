@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script src="{{url_for('static',filename='js/index.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery-1.2.3.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body >
+<div id="super-div-2">
+<div>
+<div class ="topnav">
+    <div class="search-container">
+        <form action="http://127.0.0.1:5000/search_it" method ="POST" enctype = "multipart/form-data">
+
+        <input id="input-text" type="text" placeholder="Search by name or email address" name="search_val">
+        <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+
+<div id="edit-id">
+    
+
+
+<p id="var1">Edit Contact</p>
+
+<div>
+{%for p in people%}
+
+</div id="edit_details">
+<p id="var16">Name :               {{p[1]}}</p>
+<p id="var17">Email Address :      {{p[2]}}</p>
+<p id="var18">Contact No :         {{p[3]}}</p>
+<p></p>
+</div>
+{% endfor %}
+ 
+
+<form action="http://127.0.0.1:5000/edit_contact" method="post" name="form1">
+<p id="var11">Id<input type="text" readonly="readonly" name="id" id="var111" value={{val}}></p>
+<p id="var12">Name<input type="text" name="name" id="var112" ></p>
+<p id="var13">Email address<input type="text" name="email_add" id="var113" ></p>
+<p id="var14">Contact No<input type="text" name="phone" id="var114" ></p>
+<p id="var15"><input type="submit" value="Submit" ></p>
+<p id="var20">{{err}}</p>
+
+</form>
+
+</div>
+</div>
+</div>
+</body>
+</html>

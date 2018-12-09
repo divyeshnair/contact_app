@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <script src="{{url_for('static',filename='js/index.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery-1.2.3.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div id="super-div-2">
+<div>
+<div class ="topnav">
+    <div class="search-container">
+        <form action="http://127.0.0.1:5000/search_it" method ="POST" enctype = "multipart/form-data">
+
+        <input id="input-text" type="text" placeholder="Search by name or email address" name="search_val">
+        <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+<div id="table-id">
+    
+
+<table>
+  
+  <tr>
+    <th>Name</th>
+    <th>Email address</th>
+    <th>Phone Number</th>
+  </tr>
+  {%for p in people%}
+  <tr>
+    <td>{{p[1]}}</td>
+    <td>{{p[2]}}</td>
+    <td>{{p[3]}}</td>
+    
+  </tr>
+   {% endfor %}
+  
+  
+</table>
+
+</div>
+<div id="num-id">
+{%for i in range(1,pages+1)%}
+<button onclick="fun2({{i}})" >{{i}}</button>
+
+{% endfor %}
+  
+</div>
+</div>
+</body>
+</html>
